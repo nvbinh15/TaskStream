@@ -5,6 +5,8 @@ import se.edu.inclass.task.Deadline;
 import se.edu.inclass.task.Task;
 import se.edu.inclass.task.TaskNameComparator;
 
+import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -16,11 +18,15 @@ public class Main {
         DataManager dm = new DataManager("./data/data.txt");
         ArrayList<Task> tasksData = dm.loadData();
 
-        System.out.println("Printing deadlines");
-        printDeadlines(tasksData);
-
-        System.out.println("Total number of deadlines: " + countDeadlines(tasksData));
-
+//        System.out.println("Printing deadlines");
+//        printDeadlines(tasksData);
+//
+//        System.out.println("Total number of deadlines: " + countDeadlines(tasksData));
+//        printData(tasksData);
+//        printDataWithStreams(tasksData);
+        printDeadlinesUsingStream(tasksData);
+        System.out.println("Total number of deadlines (using stream): "
+                + countDeadlinesUsingStreams(tasksData));
     }
 
     private static int countDeadlines(ArrayList<Task> tasksData) {
